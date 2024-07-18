@@ -27,3 +27,5 @@ Actions: https://github.com/marketplace?type=actions
 ## Código Fonte
 
 https://github.com/tmansur/fc2.0-ci-go
+
+## Iniciando com CI
