@@ -11,5 +11,5 @@ jobs: #jobs que serão executados
       - uses: actions/setup-go@v2 #action de configuração de um ambiente com Golang
         with: 
           go-version: 1.15
-      - run: go test # run é utilizado para executar comandos
-      - run: go run math.go
+      - run: go test ./exemplo-go # run é utilizado para executar comandos
+      - run: go run ./exemplo-go/math.go
