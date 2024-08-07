@@ -65,11 +65,10 @@ Ativar status check (só faz o merge se a pipeline rodar com sucesso) e bloquear
 
 `Settings | Branches | Add branch ruleset`
 
-- Branch name pattern: develop
+- Ruleset name: ci-rules
+- Enforcement Status: Active
+- Target branches: develop e main
 - Require status checks to pass
 - Require branches to be up to date before merging
-- Status checks: check-application (nome do job da pipeline de CI criada)
-- Restrict who can push to matching branches
-- Include administratirs
-
-**Criar mesma regra para branch main**
+- Status checks that are required: run on Ubuntu (nome do job da pipeline de CI criada)
+- Block force pushes
