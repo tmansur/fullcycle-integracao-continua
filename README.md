@@ -43,7 +43,7 @@ on:
     branches: [ main ]  #processo de CI vai rodar toda vez que for feito um push na branch main
 jobs: #jobs que serão executados
   check-application:
-    name: run on Ubuntu
+    name: run on Ubuntu #nome do job
     runs-on: ubuntu-latest #onde a aplicação será executada
     steps:
       - uses: actions/checkout@v2 #action para fazer checkout do fonte a ser utilizado
