@@ -76,4 +76,4 @@ Ativar status check (só faz o merge se a pipeline rodar com sucesso) e bloquear
 
 Teste para execução da pipeline a partir da PR
 
-Verificar: está permitindo o merge para develop mesmo quando a pipeline está quebrada
+Verificar: está permitindo o merge para develop mesmo quando a pipeline está quebrada.
