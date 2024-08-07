@@ -73,3 +73,5 @@ Ativar status check (só faz o merge se a pipeline rodar com sucesso) e bloquear
 - Include administratirs
 
 **Criar mesma regra para branch main**
+
+Teste da pipeline com erro
