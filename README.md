@@ -73,7 +73,3 @@ Ativar status check (só faz o merge se a pipeline rodar com sucesso) e bloquear
 - Include administratirs
 
 **Criar mesma regra para branch main**
-
-Teste para execução da pipeline a partir da PR
-
-Verificar: está permitindo o merge para develop mesmo quando a pipeline está quebrada.
