@@ -28,4 +28,48 @@ Actions: https://github.com/marketplace?type=actions
 
 https://github.com/tmansur/fc2.0-ci-go
 
-## Iniciando com CI
+## Iniciando CI com GitHub Actions
+
+Link da documentação: https://docs.github.com/pt/actions
+
+Criação do arquivo de configuração da pipeline de CI no diretório `.github/workflows/`.
+
+```YAML
+#ci.yaml
+
+name: ci-golang-workflow #nome da pipeline
+on:
+  push:
+    branches: [ main ]  #processo de CI vai rodar toda vez que for feito um push na branch main
+jobs: #jobs que serão executados
+  check-application:
+    name: run on Ubuntu
+    runs-on: ubuntu-latest #onde a aplicação será executada
+    steps:
+      - uses: actions/checkout@v2 #action para fazer checkout do fonte a ser utilizado
+      - uses: actions/setup-go@v2 #action de configuração de um ambiente com Golang
+        with:
+          go-version: 1.15
+      #run é utilizado para executar comandos
+      - run: go test ./exemplo-go #executa os testes do projeto
+      - run: go run ./exemplo-go/math.go #executa o
+```
+
+### Configurando a branch
+
+Alterando o branch principal para develop:
+
+`Settings | Branches | Default branch -> develop`
+
+Ativar status check (só faz o merge se a pipeline rodar com sucesso) e bloquear o commit direto na branch:
+
+`Settings | Branches | Add rules`
+
+- Branch name pattern: develop
+- Require status checks to pass before merging
+- Require branches to be up to date before merging
+- Status checks: check-application (nome do job da pipeline de CI criada)
+- Restrict who can push to matching branches
+- Include administratirs
+
+**Criar mesma regra para branch main**
