@@ -10,7 +10,7 @@ jobs: #jobs que serão executados
     runs-on: ubuntu-latest #onde a aplicação será executada
     strategy:
       matrix:
-        go: ["1.22", "1.21"]
+        go: ["1.14", "1.15"]
     steps:
       - uses: actions/checkout@v2 #action para fazer checkout do fonte a ser utilizado
       - uses: actions/setup-go@v2 #action de configuração de um ambiente com Golang
