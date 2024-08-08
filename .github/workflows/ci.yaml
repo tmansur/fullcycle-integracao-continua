@@ -17,5 +17,5 @@ jobs: #jobs que serão executados
         with:
           go-version: ${{ matrix.go }}
           cache: false
-      - run: go test ./exemplo-go # run é utilizado para executar comandos
-      - run: go run ./exemplo-go/math.go
+      - run: go test ./src # run é utilizado para executar comandos
+      - run: go run ./src/math.go
