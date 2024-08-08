@@ -8,10 +8,13 @@ jobs: #jobs que serão executados
   check-application:
     name: run on Ubuntu #nome do job
     runs-on: ubuntu-latest #onde a aplicação será executada
+    strategy:
+      matrix:
+        go: ["1.22", "1.21"]
     steps:
       - uses: actions/checkout@v2 #action para fazer checkout do fonte a ser utilizado
       - uses: actions/setup-go@v2 #action de configuração de um ambiente com Golang
         with:
-          go-version: 1.15
+          go-version: ${{ matrix.go }}
       - run: go test ./exemplo-go # run é utilizado para executar comandos
       - run: go run ./exemplo-go/math.go
