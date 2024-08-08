@@ -16,5 +16,6 @@ jobs: #jobs que serão executados
       - uses: actions/setup-go@v4 #action de configuração de um ambiente com Golang
         with:
           go-version: ${{ matrix.go }}
+          cache: false
       - run: go test ./exemplo-go # run é utilizado para executar comandos
       - run: go run ./exemplo-go/math.go
