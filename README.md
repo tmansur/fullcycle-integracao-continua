@@ -147,3 +147,5 @@ https://docs.sonarsource.com/sonarcloud/advanced-setup/ci-based-analysis/github-
 
 Incluir secret:
 - SONAR_TOKEN
+
+Alterar `Status checks that are required`, nas regras da branch, para **SonarCloud Code Analysis** 
