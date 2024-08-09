@@ -84,7 +84,7 @@ jobs:
     # ...
     strategy:
       matrix:
-        go: ["1.14", "1.15"]
+        go: ["1.18", "1.19"]
     # ...
     steps:
       # ...
@@ -95,3 +95,34 @@ jobs:
 > [!IMPORTANT]
 > Quando colocamos versões diferentes da linguagem para a pipeline executar, é como se existissem duas pipelines, cada uma com nome `"job name" + "(versão da linguagem)"`.
 > Por isso, precisamos mudar a configuração de "Require status check to pass" no "rulesets" configurado para adicionar no campo "Status checks that are required" `run on Ubuntu (1.14)` e `run on Ubuntu (1.15)`e remover `run on Ubuntu`.
+
+### Dockerfile
+
+Gerando a imagem do nosso serviço:
+
+```Dockerfile
+FROM golang:1.19
+
+WORKDIR /app
+
+RUN go mod init teste
+
+COPY ./src/. .
+
+RUN go build -o math
+
+CMD ["./math"]
+```
+
+Gerando a imagem: `docker build -t teste .`
+Executando a imagem em um container: `docker run --rm teste`
+
+### Gerando build da imagem via CI
+
+https://github.com/marketplace/actions/build-and-push-docker-images
+
+Actions necessárias:
+
+- docker/setup-qemu-action@v3
+- docker/setup-buildx-action@v3
+- docker/build-push-action@v6

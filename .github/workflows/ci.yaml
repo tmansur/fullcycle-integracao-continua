@@ -18,7 +18,7 @@ jobs: #jobs que serão executados
           #go-version: ${{ matrix.go }}
           go-version: "1.19"
           cache: false
-      - run: go mod init
+      - run: go mod init teste
       - run: go test # run é utilizado para executar comandos
       - run: go run math.go
 
