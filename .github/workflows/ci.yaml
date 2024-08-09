@@ -28,9 +28,15 @@ jobs: #jobs que serão executados
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Build and push #faz build da imagem e push (quando push = true) no docker hub
         id: docker_build
         uses: docker/build-push-action@v6
         with:
-          push: false
+          push: true #define se a imagem será puclicada no docker hub
           tags: tmansur/fullcycle-integracao-continua-app:latest
