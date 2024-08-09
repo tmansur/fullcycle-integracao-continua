@@ -19,7 +19,7 @@ jobs: #jobs que serão executados
           go-version: "1.19"
           cache: false
       - run: go mod init teste
-      - run: go test # run é utilizado para executar comandos
+      - run: go test -coverprofile=coverage.out # run é utilizado para executar comandos
       - run: go run math.go
 
       - name: Set up QEMU #nome do passo que será executado
