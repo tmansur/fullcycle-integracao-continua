@@ -20,3 +20,16 @@ jobs: #jobs que serão executados
           cache: false
       - run: go test ./src # run é utilizado para executar comandos
       - run: go run ./src/math.go
+
+      - name: Set up QEMU #nome do passo que será executado
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push #faz build da imagem e push (quando push = true) no docker hub
+        id: docker_build
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: tmansur/fullcycle-integracao-continua-app:latest
