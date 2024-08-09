@@ -126,3 +126,9 @@ Actions necessárias:
 - docker/setup-qemu-action@v3
 - docker/setup-buildx-action@v3
 - docker/build-push-action@v6
+
+Incluir secrets no Github de usuário e senha do Docker Hub para fazer o push da imagem:
+
+- `Settings | Secrets and Variables | Actions | New repository secret`:
+  - DOCKERHUB_USERNAME -> Usuário do docker hub
+  - DOCKERHUB_TOKEN -> Token para acesso ao docker hub. Para ser gerado tem que acessar o `Docker Hub | Account Settings | Security | Personal access tokens | Generate new token` (access permission = Read & Write)
