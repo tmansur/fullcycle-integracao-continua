@@ -74,7 +74,7 @@ Ativar status check (só faz o merge se a pipeline rodar com sucesso) e bloquear
 - Status checks that are required: run on Ubuntu (nome do job da pipeline de CI criada)
 - Block force pushes
 
-### Strategy Matrix
+## Strategy Matrix
 
 Permite executar os testes da pipeline em diferentes versões da linguagem, basta configurar o atributo `strategy` dentro da configuração do job no arquivo YAML e mudar a versão no atributo `step` para usar a estratégia configurada.
 
@@ -96,7 +96,7 @@ jobs:
 > Quando colocamos versões diferentes da linguagem para a pipeline executar, é como se existissem duas pipelines, cada uma com nome `"job name" + "(versão da linguagem)"`.
 > Por isso, precisamos mudar a configuração de "Require status check to pass" no "rulesets" configurado para adicionar no campo "Status checks that are required" `run on Ubuntu (1.14)` e `run on Ubuntu (1.15)`e remover `run on Ubuntu`.
 
-### Dockerfile
+## Dockerfile
 
 Gerando a imagem do nosso serviço:
 
@@ -117,7 +117,7 @@ CMD ["./math"]
 Gerando a imagem: `docker build -t teste .`
 Executando a imagem em um container: `docker run --rm teste`
 
-### Gerando build da imagem via CI
+## Gerando build da imagem via CI
 
 https://github.com/marketplace/actions/build-and-push-docker-images
 
@@ -132,3 +132,18 @@ Incluir secrets no Github de usuário e senha do Docker Hub para fazer o push da
 - `Settings | Secrets and Variables | Actions | New repository secret`:
   - DOCKERHUB_USERNAME -> Usuário do docker hub
   - DOCKERHUB_TOKEN -> Token para acesso ao docker hub. Para ser gerado tem que acessar o `Docker Hub | Account Settings | Security | Personal access tokens | Generate new token` (access permission = Read & Write)
+
+## Sonarqube
+
+Podemos utilizar o Sonarqube executando em um cointainer Docker: https://docs.sonarsource.com/sonarqube/latest/try-out-sonarqube/
+
+### SonarCloud
+
+https://sonarcloud.io/
+
+#### Configurando projeto do sonar com Github Actions
+
+https://docs.sonarsource.com/sonarcloud/advanced-setup/ci-based-analysis/github-actions-for-sonarcloud/
+
+Incluir secret:
+- SONAR_TOKEN
